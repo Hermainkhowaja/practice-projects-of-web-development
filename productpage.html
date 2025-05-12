@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page Design</title>
+</head>
+
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'poppins',sans-serif;
+    }
+    .container{
+        width: 100%;
+        min-height: 100vh;
+        background: #d0eaff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .product{
+        width: 90%;
+        max-width: 750px;
+        display: flex;
+    }
+    .gallery{
+        flex-basis: 47%;
+        background: #241e20;
+        transform: scale(1.08);
+        box-shadow: -10px 5px 10px 10px rgba(0,0,0,0.1);
+        position: relative;
+    }
+    .gallery img{
+        width: 100%;
+        display: block;
+        padding-top: 100px;
+
+    }
+    .details{
+        flex-basis: 53%;
+        background: #fff;
+        padding: 40px;
+        padding-left: 60px;
+        box-shadow: -10px 5px 10px 10px rgba(0,0,0,0.1);
+        font-size:13px ;
+        font-weight: 500;
+        color: #777;
+    }
+
+    .details h1{
+        color: #333;
+        font-size: 35px;
+    }
+    .details h2{
+        color: #555;
+        font-size: 30px;
+        font-weight: 600;
+    }
+    .details h3{
+        color: #00d874;
+        margin-bottom: 20px ;
+
+    }
+    .details form{
+        font-size: 15px;
+        font-weight: 400;
+    }
+    .size-select{
+        display: flex;
+        align-items: center;
+        margin-top: 50px;
+    }
+    .size-select p{
+        width: 70px;
+    }
+    .size-select input:checked + span{
+        color: blue;
+        font-weight: 600;
+    }
+    .size-select input{
+        display: none;
+    }
+    .size-select span{
+        padding: 5px;
+        margin-right:10px ;
+        cursor: pointer;
+    }
+    .color-select{
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+
+    }
+    .color-select p{
+        width: 75px;
+    }
+    .color-select span{
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        margin-right: 15px;
+        cursor: pointer;
+    }
+    .color-1{
+        background-color: red;
+    }
+    .color-2{
+        background-color: green;
+    }
+    .color-3{
+        background-color: blue;
+    }
+    .color-4{
+        background-color: pink;
+    }
+    .color-select input{
+        display: none;
+    }
+    .color-select input:checked +span{
+        transform: scale(0.7);
+        box-shadow: 0 0 0 4px #fff,
+        0 0 0 6px #000;
+    }
+    .quantity{
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+    .quantity p{
+        width: 75px;
+    }
+    .quantity input{
+        background: #eee;
+        border: 0;
+        outline: 0;
+        padding: 2px 2px 2px 15px;
+        width: 50px;
+        border-radius: 12px;
+    }
+    form button{
+        background: #553ff0;
+        color: #fff;
+        font-size: 17px;
+        width: 100%;
+        padding: 10px;
+        border-radius: 30px;
+        border: none;
+        outline: none;
+        margin-top: 50px;
+        box-shadow: 0 10px 10px rgba(85,63,240,0.25);
+        cursor: pointer;
+    }
+    .controls{
+        position: absolute;
+        bottom: 40px;
+        right: 20px;
+    }
+    .btn {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(1255,255,255,0.5);
+        margin: 10px;
+        cursor: pointer;
+    }
+    .btn.active{
+        background: #553ff0;
+    }
+
+</style>
+
+
+<body>
+    <div class="container">
+        <div class="product">
+            <div class="gallery">
+                <img src="product page img/image1.png" id="productImg">
+                <div class="controls">
+                    <span class="btn active"></span>
+                    <span class="btn"></span>
+                    <span class="btn"></span>
+                </div>
+            </div>
+            <div class="details">
+                <h1>Casual T-shirt</h1>
+                <h2>$15.00</h2>
+                <h3>30% OFF</h3>
+                <p>Wrangler is an american manufacturer of jeans and other items,
+                    particularly workwear. </p>
+                    <form action="">
+                        <div class="size-select">
+                            <p>size</p>
+                            <label for="small">
+                                <input type="radio" name="size" id="small">
+                                <span>S</span>
+                            </label>
+                            <label for="medium">
+                                <input type="radio" name="size" id="medium">
+                                <span>M</span>
+                            </label>
+                            <label for="large">
+                                <input type="radio" name="size" id="large">
+                                <span>L</span>
+                            </label>
+                            <label for="x-large">
+                                <input type="radio" name="size" id="x-large">
+                                <span>XL</span>
+                            </label>
+                            <label for="xx-large">
+                                <input type="radio" name="size" id="xx-large">
+                                <span>XXL</span>
+                            </label>
+                        </div>
+
+                        <div class="color-select">
+                            <p>color</p>
+                            <label for="red">
+                                <input type="radio" name="color" id="red">
+                                <span class="color-1"></span>
+                            </label>
+                            <label for="green">
+                                <input type="radio" name="color" id="green">
+                                <span class="color-2"></span>
+                            </label>
+                            <label for="blue">
+                                <input type="radio" name="color" id="blue">
+                                <span class="color-3"></span>
+                            </label>
+                            <label for="pink">
+                                <input type="radio" name="color" id="pink">
+                                <span class="color-4"></span>
+                            </label>
+                        </div>
+
+                        <div class="quantity">
+                            <p>Quantity</p>
+                            <input type="number" value="1">
+                        </div>
+
+                        <button>Buy Now</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+
+<script>
+
+    let productImg = document.getElementById("productImg");
+    let btn = document.getElementsByClassName("btn");
+
+    btn[0].onclick = function(){
+        productImg.src = "product page img/image1.png";
+        
+        for(bt of btn){
+            bt.classList.remove("active");
+        }
+        this.classList.add("active");
+    }
+    btn[1].onclick = function(){
+        productImg.src = "product page img/image2.png";
+        for(bt of btn){
+            bt.classList.remove("active");
+        }
+        this.classList.add("active");
+    }
+    btn[2].onclick = function(){
+        productImg.src = "product page img/image3.png";
+        for(bt of btn){
+            bt.classList.remove("active");
+        }
+        this.classList.add("active");
+    }
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Change Effect</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .container{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f3fbff;
+    }
+    .img-box{
+        width: 60%;
+        margin: auto;
+        line-height: 0%;
+        background-image: url(background_change_img/background.png);
+        overflow: hidden;
+        position: relative;
+    }
+    .img-wrap{
+        width: 20px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+
+    }
+    span {
+        width: 1px;
+        height: 100%;
+        cursor: ew-resize;
+        background: #fff;
+        position: absolute;
+        left: 20px;
+        top: 0;
+
+    }
+    .arrow{
+        width: 40px;
+        position: absolute;
+        top: 50%;
+        margin-left: -20px;
+        margin-top: -20px;
+    }
+
+
+</style>
+<body>
+    <div class="container">
+
+        <div class="img-box">
+            <img src="background_change_img/transparent.png" width="100%" >
+        
+            <div class="img-wrap">
+                <img src="background_change_img/original.jpg" id="originalImg">
+            </div>
+
+            <span id="line">
+                <img src="background_change_img/arrow.png" class="arrow">
+            </span>
+        </div>
+    </div>
+    
+
+    <script>
+
+        let imgBox = document.querySelector('.img-box');
+        let imgWrap = document.querySelector('.img-wrap');
+        let originalImg = document.getElementById('originalImg');
+        let line = document.getElementById('line');
+
+        originalImg.style.width = imgBox.offsetWidth + "px";
+    
+        let leftSpace = imgBox.offsetLeft;
+    
+        imgBox.onmousemove = function(e) {
+            let boxWidth = (e.pageX - leftSpace) + "px";
+            imgWrap.style.width = boxWidth;
+            line.style.left =boxWidth;
+        }
+
+
+    </script>
+    
+</body>
+</html>

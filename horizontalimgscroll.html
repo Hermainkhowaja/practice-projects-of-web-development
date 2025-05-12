@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Image Scroll</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'poppins',sans-serif;
+    }
+    body{
+        background: #191919;
+
+    }
+    .gallery{
+        width: 900px;
+        display: flex;
+        overflow-x: scroll;
+    }
+    .gallery div{
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 20px;
+        padding: 10px;
+        flex: none;
+    }
+    .gallery div img{
+        width: 100%;
+        filter: grayscale(100%);
+        transition: transform 0.5s;
+    }
+    .gallery::-webkit-scrollbar {
+        display: none;
+    }
+    .gallery-wrap{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10% auto;
+    }
+    #backbtn, #nextbtn{
+        width: 50px;
+        cursor: pointer;
+        margin: 40px;
+    }
+    .gallery div img:hover{
+        filter: grayscale(0);
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+
+</style>
+<body>
+    <div class="gallery-wrap">
+        <img src="images for horizontal scroll/back.png" id="backbtn">
+        <div class="gallery">
+            <div>
+                <span> <img src="/images for horizontal scroll/image-1.png" ></span>
+                <span> <img src="/images for horizontal scroll/image-2.png" ></span>
+                <span> <img src="/images for horizontal scroll/image-3.png" ></span>
+                
+            </div>
+            <div>
+                <span> <img src="/images for horizontal scroll/image-4.png" ></span>
+                <span> <img src="/images for horizontal scroll/image-5.png" ></span>
+                <span> <img src="/images for horizontal scroll/image-6.png" ></span>
+                
+            </div>
+        </div>
+    
+        <img src="images for horizontal scroll/next.png" id="nextbtn">
+    </div>
+   
+    <script>
+
+        let scrollContainer = document.querySelector(".gallery");
+        let backBtn = document.getElementById('backbtn');
+        let nextBtn = document.getElementById('nextbtn');
+
+        scrollContainer.addEventListener("wheel" ,(e) => {
+            e.preventDefault();
+            scrollContainer.scrollLeft  += e.deltaY;
+            scrollContainer.style.scrollBehavior = "auto";
+        })
+
+        nextBtn.addEventListener('click', () =>{
+            scrollContainer.style.scrollBehavior = "smooth";
+            scrollContainer.scrollLeft += 900;
+        })
+        backBtn.addEventListener('click', () =>{
+            scrollContainer.style.scrollBehavior = "smooth";
+            scrollContainer.scrollLeft -= 900;
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="display: flex; justify-content: center;">NAME PRINTING MACHINE</h1>
+    <button id="start">start</button>
+    <button id="stop">Stop</button>
+
+    <div class="output" style="margin-top: 20px; font-size: 20px; color: darkblue;"></div>
+
+
+<script>
+    const start = document.querySelector('#start');
+    const stop = document.querySelector('#stop');
+    const outPut = document.querySelector('.output')
+
+    let interval;
+
+    const sayName = function(str){
+        // console.log(str , Date().toLocaleString())
+        const datestamp = Date().toLocaleString();
+        outPut.innerHTML += `${str} - ${datestamp} <br>`;
+    }
+    start.addEventListener('click', function(){
+        
+         interval = setInterval( sayName ,1000, `hello hermain`)
+    });
+
+    stop.addEventListener('click', function(){
+
+        clearInterval(interval);
+    });
+    
+</script>
+
+</body>
+</html>
